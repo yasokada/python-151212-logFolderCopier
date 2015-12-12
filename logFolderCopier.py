@@ -7,11 +7,14 @@ v0.1  2015 Dec. 12
 
 import shutil
 import os.path
+import sys
 
-path1="/media/pi/COPYTO"
-path2="/media/pi/CopyTo"
-if os.path.isdir(path1):
+param = sys.argv
+
+srcpath=param[1] # xxx/Log/
+dstpath="/media/pi/COPYTO"
+if os.path.isdir(srcpath) and os.path.isdir(dstpath):
 	print "exist"
-	shutil.copy("test.txt", path1 + "/" + "test.txt")
+	shutil.copytree(srcpath, dstpath + "/Log/")
 
 
