@@ -2,6 +2,7 @@
 
 '''
 v0.2  2015 Dec. 13
+  - unmount after copying
   - fix bug > did not overwrite files 
 v0.1  2015 Dec. 12
   - add USB memory insertion recognition
@@ -24,6 +25,7 @@ import sys
 import time
 import distutils
 from distutils import dir_util
+import subprocess
 
 param = sys.argv
 
@@ -41,6 +43,9 @@ while True:
 		if chk1==False and chk2==False and chk3==True:
 			print "inserted"
 			distutils.dir_util.copy_tree(srcpath, dstpath + "/Log/")
+			cmd=["umount", dstpath]
+			print cmd
+			subprocess.Popen(cmd, bufsize=0)
 			print "Copied"
 	time.sleep(0.5)
 
