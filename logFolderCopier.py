@@ -5,6 +5,15 @@ v0.1  2015 Dec. 12
   - add main 
 '''
 
+'''
+Usage:
+# sudo python logFolderCopier.py [LogFolderPath]
+
+e.g.
+# sudo python logFolderCopier.py /home/pi/linmonitor/Log/
+'''
+
+
 import shutil
 import os.path
 import sys
