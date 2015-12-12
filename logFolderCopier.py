@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 '''
+v0.2  2015 Dec. 13
+  - fix bug > did not overwrite files 
 v0.1  2015 Dec. 12
   - add USB memory insertion recognition
   - add folder copy feature
@@ -20,6 +22,8 @@ import shutil
 import os.path
 import sys
 import time
+import distutils
+from distutils import dir_util
 
 param = sys.argv
 
@@ -36,7 +40,7 @@ while True:
 	if os.path.isdir(srcpath) and os.path.isdir(dstpath):
 		if chk1==False and chk2==False and chk3==True:
 			print "inserted"
-			shutil.copytree(srcpath, dstpath + "/Log/")
+			distutils.dir_util.copy_tree(srcpath, dstpath + "/Log/")
 			print "Copied"
 	time.sleep(0.5)
 
